@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Development &#8212; sknet  documentation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="sknet.utils.network_types_handler module" href="../api_reference/sknet.utils.network_types_handler.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../user_guide/index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api_reference/index.html">
+  API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Development
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/TNanukem/sknet" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/TiagoJToledoJr" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul class="navbar-nav">
+    <li class="mr-2 dropdown">
+        <button type="button" class="btn btn-version btn-sm navbar-btn dropdown-toggle" id="dLabelMore" data-toggle="dropdown">
+            v
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dLabelMore">
+            <li><a href="https://tnanukem.github.io/sknet/develop/">develop (latest)</a></li>
+            <li><a href="https://tnanukem.github.io/sknet/main/">main (stable)</a></li>
+        </ul>
+    </li>
+</ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-contribute">
+   How to contribute?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opening-an-issue">
+     Opening an issue
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contributing-to-the-documentation">
+     Contributing to the documentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-an-issue">
+     Solving an issue
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pull-requests">
+   Pull Requests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#doubts">
+   Doubts?
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="development">
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<p>This is a guide for anyone interested in helping the development of the sknet. The library is an
+open-source project and therefore depends on the community to keep existing, everyone is welcome
+to help us improve.</p>
+<div class="section" id="how-to-contribute">
+<h2>How to contribute?<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h2>
+<p>There are several ways of contributing for the sknet. Below we state those ways in ascending order
+of complexity.</p>
+<div class="section" id="opening-an-issue">
+<h3>Opening an issue<a class="headerlink" href="#opening-an-issue" title="Permalink to this headline">¶</a></h3>
+<p>We oficially use the Issue Tracker on our github repo to hold up every new feature request and bug
+tracking. Therefore, you can open up an issue to:</p>
+<ul class="simple">
+<li><p>Warn us about some bug on the library</p></li>
+<li><p>Warn us about documentation errors</p></li>
+<li><p>Request a new feature or change for one already implemented algorithm</p></li>
+<li><p>Request a brand new algorithm</p></li>
+</ul>
+<p>We provide a basic template for issues on the <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder inside our Github repo, please
+refer to it before opening the issue so you can provide us with all of the information we need to
+evaluate and (possibly) work on your issue.</p>
+</div>
+<div class="section" id="contributing-to-the-documentation">
+<h3>Contributing to the documentation<a class="headerlink" href="#contributing-to-the-documentation" title="Permalink to this headline">¶</a></h3>
+<p>If you found some problem on the documentation, such as wrong information, typos or something that
+is missing or could be better explained, please, open an issue about it. After that, if you want to
+correct the documentation yourself, feel free to open up a Pull Request with your correction. Please
+remember to cite your issue on the Pull Request.</p>
+</div>
+<div class="section" id="solving-an-issue">
+<h3>Solving an issue<a class="headerlink" href="#solving-an-issue" title="Permalink to this headline">¶</a></h3>
+<p>If you find an issue on the repo and thinks you can solve it, we encourage you to do so. Just verify
+previously if no one is already assigned that issue. If this is not the case, then you can ask, on the
+issue comments, to be assigned it.</p>
+<p>Once you finished your implementation, open up a Pull Request on the repo. Your Pull Request will be
+reviewed. Be aware that several iterations of revision may be required before the code is merged. We
+encourage you to see the revision as a chat between two (or more) people trying to deliver the best
+possible product to the people using the library.</p>
+</div>
+</div>
+<div class="section" id="pull-requests">
+<h2>Pull Requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">¶</a></h2>
+<p>For those interested into opening Pull Requests for new features on the code, we will briefly describe
+some of the things you must pay attention to.</p>
+<p>First of all, one template for Pull Requests is available on the <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder inside the Github
+repo. Regarding to your code, some restrictions must be satisfied:</p>
+<ul class="simple">
+<li><p>Every Pull Request branch must be made from and merged to the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch</p></li>
+<li><p>Every new class or method must be unittested with pytest. We will not accept additions to the repo that reduces our coverage without a good reason for doing so</p></li>
+<li><p>Every public method must have a docstring using the numpy docstring style</p></li>
+<li><p>Every code must adhere to the PEP8. We suggest using flake8 to assess your style</p></li>
+<li><p>Performance improvements must contain benchmarks results</p></li>
+<li><p>We value good-sense when documenting methods</p></li>
+<li><p>Every change to modules with interface to users must have an entry on the documentation</p></li>
+</ul>
+<p>Our Continous Integration pipeline will help you ensure most of those aspects. However, we strongly
+encourage you to run those tests on your machine before submitting the Pull Request to avoid overhead
+on the CI.</p>
+</div>
+<div class="section" id="doubts">
+<h2>Doubts?<a class="headerlink" href="#doubts" title="Permalink to this headline">¶</a></h2>
+<p>If any doubt remain, please fell free to contact any of the developers.</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../api_reference/sknet.utils.network_types_handler.html" title="previous page">sknet.utils.network_types_handler module</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Tiago Toledo.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2.<br/>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

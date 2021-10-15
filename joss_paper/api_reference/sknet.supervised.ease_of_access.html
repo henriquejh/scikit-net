@@ -1,0 +1,810 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sknet.supervised.ease_of_access module &#8212; sknet  documentation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sknet.supervised.high_level_classification module" href="sknet.supervised.high_level_classification.html" />
+    <link rel="prev" title="sknet.supervised.tests.test_high_level_classification module" href="sknet.supervised.tests.test_high_level_classification.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../user_guide/index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  API Reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../development/index.html">
+  Development
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/TNanukem/sknet" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/TiagoJToledoJr" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul class="navbar-nav">
+    <li class="mr-2 dropdown">
+        <button type="button" class="btn btn-version btn-sm navbar-btn dropdown-toggle" id="dLabelMore" data-toggle="dropdown">
+            v
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dLabelMore">
+            <li><a href="https://tnanukem.github.io/sknet/develop/">develop (latest)</a></li>
+            <li><a href="https://tnanukem.github.io/sknet/main/">main (stable)</a></li>
+        </ul>
+    </li>
+</ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="sknet.network_construction.html">
+   sknet.network_construction package
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="sknet.network_construction.tests.html">
+     sknet.network_construction.tests package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sknet.network_construction.tests.test_network_construction.html">
+       sknet.network_construction.tests.test_network_construction module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sknet.network_construction.dataset_constructors.html">
+     sknet.network_construction.dataset_constructors module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sknet.network_construction.general_constructors.html">
+     sknet.network_construction.general_constructors module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sknet.network_construction.time_series_constructors.html">
+     sknet.network_construction.time_series_constructors module
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="sknet.semi_supervised.html">
+   sknet.semi_supervised package
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sknet.semi_supervised.modularity_label_propagation.html">
+     sknet.semi_supervised.modularity_label_propagation module
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="sknet.supervised.html">
+   sknet.supervised package
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="sknet.supervised.tests.html">
+     sknet.supervised.tests package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sknet.supervised.tests.test_ease_of_access.html">
+       sknet.supervised.tests.test_ease_of_access module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sknet.supervised.tests.test_high_level_classification.html">
+       sknet.supervised.tests.test_high_level_classification module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     sknet.supervised.ease_of_access module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sknet.supervised.high_level_classification.html">
+     sknet.supervised.high_level_classification module
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="sknet.unsupervised.html">
+   sknet.unsupervised package
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sknet.unsupervised.stochastic_particle_competition.html">
+     sknet.unsupervised.stochastic_particle_competition module
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="sknet.utils.html">
+   sknet.utils package
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sknet.utils.low_level_models_handler.html">
+     sknet.utils.low_level_models_handler module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sknet.utils.network_metrics_handler.html">
+     sknet.utils.network_metrics_handler module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sknet.utils.network_types_handler.html">
+     sknet.utils.network_types_handler module
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="module-sknet.supervised.ease_of_access">
+<span id="sknet-supervised-ease-of-access-module"></span><h1>sknet.supervised.ease_of_access module<a class="headerlink" href="#module-sknet.supervised.ease_of_access" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccess">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sknet.supervised.ease_of_access.</span></span><span class="sig-name descname"><span class="pre">EaseOfAccess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eigenvalue'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Ease of Access method to learn network patterns on data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epsilon</strong> (<em>float</em><em>, </em><em>default=0.2</em>) – The perturbance to be applied to the weights matrix after the
+insertion of the test data</p></li>
+<li><p><strong>t</strong> (<em>int</em><em>, </em><em>default=3</em>) – Number of points on the convergence probabilities vector
+to classify the test data</p></li>
+<li><p><strong>method</strong> (<em>str</em><em>, </em><em>default='eigenvalue'</em>) – Which method to use to compute the markov chain limiting
+probabilties. Options are ‘eigenvalue’ and ‘power’.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccess.constructor_">
+<span class="sig-name descname"><span class="pre">constructor_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccess.constructor_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The transformer used to transform the tabular data into network</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>BaseConstructor inhrerited class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccess.epsilon">
+<span class="sig-name descname"><span class="pre">epsilon</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccess.epsilon" title="Permalink to this definition">¶</a></dt>
+<dd><p>The disturbance applied to the weights matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccess.t">
+<span class="sig-name descname"><span class="pre">t</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccess.t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of points used on the convergence probabilities</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccess.method">
+<span class="sig-name descname"><span class="pre">method</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccess.method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method used to compute the limiting probabilities of the Markov chain</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccess.G_">
+<span class="sig-name descname"><span class="pre">G_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccess.G_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The network generated from the tabular data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>NetworkX network</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccess.W_">
+<span class="sig-name descname"><span class="pre">W_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccess.W_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The adjacency matrix of the network G</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>{array-like, pandas dataframe} of shape (n_samples, n_samples)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccess.X_">
+<span class="sig-name descname"><span class="pre">X_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccess.X_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The used tabular data features</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>{array-like, pandas dataframe} of shape (n_samples, n_features)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccess.y_">
+<span class="sig-name descname"><span class="pre">y_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccess.y_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The classes of each node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>{ndarray, pandas series}, shape (n_samples,) or (n_samples, n_classes)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Notes</p>
+<p>Do not use this abstract class, use derived classes instead</p>
+<p class="rubric">References</p>
+<p>Cupertino, T.H., Zhao, L., Carneiro, M.G.: Network-based supervised data
+classification by using an heuristic of ease of access. Neurocomputing
+149(Part A), 86–92 (2015)</p>
+<p>Silva, Thiago &amp; Zhao, Liang. (2016). Machine Learning in Complex
+Networks. 10.1007/978-3-319-17290-3.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccess.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">X</span></em>, <em class="sig-param"><span class="pre">y</span></em>, <em class="sig-param"><span class="pre">G=None</span></em>, <em class="sig-param"><span class="pre">constructor=&lt;sknet.network_construction.dataset_constructors.KNNConstructor</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccess.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model, internalizing the graph that should be used</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>{array-like</em><em>, </em><em>pandas dataframe} of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) – The input data.</p></li>
+<li><p><strong>y</strong> (<em>{ndarray</em><em>, </em><em>pandas series}</em><em>, </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>) or </em><em>(</em><em>n_samples</em><em>,</em>) – </p></li>
+<li><p><strong>n_classes</strong><strong>)</strong> – The true classes.</p></li>
+<li><p><strong>G</strong> (<em>NetworkX Graph</em><em>, </em><em>default=None</em>) – If the graph was already generated, then this parameter will
+make as so the transformer is not called</p></li>
+<li><p><strong>constructor</strong> (<em>BaseConstructor inhrerited class</em><em>, </em><em>optional</em><em>(</em><em>default=</em>) – </p></li>
+<li><p><strong>KNNConstructor</strong><strong>(</strong><strong>5</strong> – A constructor class to transform the tabular data into a
+network</p></li>
+<li><p><strong>sep_comp=True</strong><strong>)</strong><strong>)</strong> – A constructor class to transform the tabular data into a
+network</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Even though the G can be passed directly, X is required so the
+distance between test classes and the other nodes on the graph
+can be calculated</p>
+<p>According to the paper implementation, the network should not
+have separated components for each class, if passing an already
+created network to the method, be mindful of that</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccess.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccess.get_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccess.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccess.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts the labels of the test samples from X</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>{array-like</em><em>, </em><em>pandas dataframe} of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) – The test data to be predicted.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>predictions</strong> – The predicted label for each sample</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array-like of shape (n_samples)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccess.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccess.set_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessClassifier">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sknet.supervised.ease_of_access.</span></span><span class="sig-name descname"><span class="pre">EaseOfAccessClassifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eigenvalue'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessClassifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sknet.supervised.ease_of_access.EaseOfAccess" title="sknet.supervised.ease_of_access.EaseOfAccess"><code class="xref py py-class docutils literal notranslate"><span class="pre">sknet.supervised.ease_of_access.EaseOfAccess</span></code></a></p>
+<p>Ease of Access Classifier</p>
+<p>Classifier that uses the heuristic of ease of access to classify
+new instances inside a network</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epsilon</strong> (<em>float</em><em>, </em><em>default=0.2</em>) – The perturbance to be applied to the weights matrix after the
+insertion of the test data</p></li>
+<li><p><strong>t</strong> (<em>int</em><em>, </em><em>deafult=3</em>) – Number of points on the convergence probabilities vector
+to classify the test data</p></li>
+<li><p><strong>method</strong> (<em>str</em><em>, </em><em>default='eigenvalue'</em>) – Which method to use to compute the markov chain limiting
+probabilties. Options are ‘eigenvalue’ and ‘power’.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessClassifier.constructor_">
+<span class="sig-name descname"><span class="pre">constructor_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessClassifier.constructor_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The constructor used to transform the tabular data into network</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>BaseConstructor inhrerited class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessClassifier.epsilon">
+<span class="sig-name descname"><span class="pre">epsilon</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessClassifier.epsilon" title="Permalink to this definition">¶</a></dt>
+<dd><p>The disturbance applied to the weights matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessClassifier.t">
+<span class="sig-name descname"><span class="pre">t</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessClassifier.t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of points used on the convergence probabilities</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessClassifier.method">
+<span class="sig-name descname"><span class="pre">method</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessClassifier.method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method used to compute the limiting probabilities of the Markov chain</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessClassifier.G_">
+<span class="sig-name descname"><span class="pre">G_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessClassifier.G_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The network generated from the tabular data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>NetworkX network</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessClassifier.W_">
+<span class="sig-name descname"><span class="pre">W_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessClassifier.W_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The adjacency matrix of the network G</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>{array-like, pandas dataframe} of shape (n_samples, n_samples)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessClassifier.X_">
+<span class="sig-name descname"><span class="pre">X_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessClassifier.X_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The used tabular data features</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>{array-like, pandas dataframe} of shape (n_samples, n_features)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessClassifier.y_">
+<span class="sig-name descname"><span class="pre">y_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessClassifier.y_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The classes of each node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>{ndarray, pandas series}, shape (n_samples,) or (n_samples, n_classes)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sknet.network_construction</span> <span class="kn">import</span> <span class="n">KNNConstructor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sknet.supervised</span> <span class="kn">import</span> <span class="n">EaseOfAccessClassifier</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+<span class="go">                                                        test_size=0.33)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">knn_c</span> <span class="o">=</span> <span class="n">KNNConstructor</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">classifier</span> <span class="o">=</span> <span class="n">EaseOfAccessClassifier</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">constructor</span><span class="o">=</span><span class="n">knn_c</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ease</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">ease</span><span class="p">)</span>
+<span class="go">0.92</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p class="rubric">References</p>
+<p>Cupertino, T.H., Zhao, L., Carneiro, M.G.: Network-based supervised data
+classification by using an heuristic of ease of access. Neurocomputing
+149(Part A), 86–92 (2015)</p>
+<p>Silva, Thiago &amp; Zhao, Liang. (2016). Machine Learning in Complex
+Networks. 10.1007/978-3-319-17290-3.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessRegressor">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sknet.supervised.ease_of_access.</span></span><span class="sig-name descname"><span class="pre">EaseOfAccessRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eigenvalue'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessRegressor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sknet.supervised.ease_of_access.EaseOfAccess" title="sknet.supervised.ease_of_access.EaseOfAccess"><code class="xref py py-class docutils literal notranslate"><span class="pre">sknet.supervised.ease_of_access.EaseOfAccess</span></code></a></p>
+<p>Ease of Access Regressor</p>
+<p>Regressor that uses the heuristic of ease of access to classify
+the real-value of the target of new instances inside a network</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epsilon</strong> (<em>float</em><em>, </em><em>default=0.2</em>) – The perturbance to be applied to the weights matrix after the
+insertion of the test data</p></li>
+<li><p><strong>t</strong> (<em>int</em><em>, </em><em>deafult=3</em>) – Number of points on the convergence probabilities vector
+to classify the test data</p></li>
+<li><p><strong>method</strong> (<em>str</em><em>, </em><em>default='eigenvalue'</em>) – Which method to use to compute the markov chain limiting
+probabilties. Options are ‘eigenvalue’ and ‘power’.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessRegressor.constructor_">
+<span class="sig-name descname"><span class="pre">constructor_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessRegressor.constructor_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The constructor used to transform the tabular data into network</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>BaseConstructor inhrerited class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessRegressor.epsilon">
+<span class="sig-name descname"><span class="pre">epsilon</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessRegressor.epsilon" title="Permalink to this definition">¶</a></dt>
+<dd><p>The disturbance applied to the weights matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessRegressor.t">
+<span class="sig-name descname"><span class="pre">t</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessRegressor.t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of points used on the convergence probabilities</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessRegressor.method">
+<span class="sig-name descname"><span class="pre">method</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessRegressor.method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method used to compute the limiting probabilities of the Markov chain</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessRegressor.G_">
+<span class="sig-name descname"><span class="pre">G_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessRegressor.G_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The network generated from the tabular data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>NetworkX network</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessRegressor.W_">
+<span class="sig-name descname"><span class="pre">W_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessRegressor.W_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The adjacency matrix of the network G</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>{array-like, pandas dataframe} of shape (n_samples, n_samples)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessRegressor.X_">
+<span class="sig-name descname"><span class="pre">X_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessRegressor.X_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The used tabular data features</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>{array-like, pandas dataframe} of shape (n_samples, n_features)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sknet.supervised.ease_of_access.EaseOfAccessRegressor.y_">
+<span class="sig-name descname"><span class="pre">y_</span></span><a class="headerlink" href="#sknet.supervised.ease_of_access.EaseOfAccessRegressor.y_" title="Permalink to this definition">¶</a></dt>
+<dd><p>The classes of each node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>{ndarray, pandas series}, shape (n_samples,) or (n_samples, n_classes)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">dataset_constructors</span> <span class="kn">import</span> <span class="n">KNNConstructor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ease_of_access</span> <span class="kn">import</span> <span class="n">EaseOfAccessRegressor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_boston</span><span class="p">(</span><span class="n">return_X_y</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+<span class="go">                                                        test_size=0.33)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">knn_c</span> <span class="o">=</span> <span class="n">KNNConstructor</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reg</span> <span class="o">=</span> <span class="n">EaseOfAccessRegressor</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">constructor</span><span class="o">=</span><span class="n">knn_c</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ease</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p class="rubric">References</p>
+<p>Cupertino, T.H., Zhao, L., Carneiro, M.G.: Network-based supervised data
+classification by using an heuristic of ease of access. Neurocomputing
+149(Part A), 86–92 (2015)</p>
+<p>Silva, Thiago &amp; Zhao, Liang. (2016). Machine Learning in Complex
+Networks. 10.1007/978-3-319-17290-3.</p>
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="sknet.supervised.tests.test_high_level_classification.html" title="previous page">sknet.supervised.tests.test_high_level_classification module</a>
+    <a class='right-next' id="next-link" href="sknet.supervised.high_level_classification.html" title="next page">sknet.supervised.high_level_classification module</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Tiago Toledo.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2.<br/>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
